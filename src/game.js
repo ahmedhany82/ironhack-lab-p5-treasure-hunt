@@ -3,6 +3,7 @@ class Game {
   constructor() {
     this.player = new Player(0, 0);
     this.treasure = new Treasure(500, 500);
+    this.score = 0;
   }
 
   preload() {
@@ -28,10 +29,13 @@ class Game {
   drawGame() {
     game.player.draw();
     game.treasure.draw();
+
     if(game.player.col === game.treasure.col && game.player.row === game.treasure.row)
     {
       game.treasure.setRandomPosition();
-    }  
+      this.score += 1;
+    }
+    document.querySelector('h2').querySelector('span').innerText = this.score;  
   }
 }
 
