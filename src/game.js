@@ -7,7 +7,7 @@ class Game {
   }
 
   preload() {
-    this.player.playerPreload();
+    this.player.playerPreload('D');
     this.treasure.treasurePreload();
   }
 
@@ -48,22 +48,39 @@ class Player {
 
   moveUp() {
     this.row -= 100;
+    this.playerPreload('U');
   }
 
   moveDown() {
     this.row += 100; 
+    this.playerPreload('D');
   }
 
   moveLeft() {
     this.col -= 100;
+    this.playerPreload('L');
   }
 
   moveRight() {
     this.col += 100;
+    this.playerPreload('R');
   }
 
-  playerPreload() {
-    this.image = loadImage('assets/character-down.png');
+  playerPreload(direction) {
+    switch (direction) {
+      case 'U':
+        this.image = loadImage('assets/character-up.png');
+        break;
+      case 'D':
+        this.image = loadImage('assets/character-down.png');
+        break;
+      case 'L':
+        this.image = loadImage('assets/character-left.png');
+        break;
+      case 'R':
+        this.image = loadImage('assets/character-right.png');
+        break;
+    }
   }
 
   draw() {
