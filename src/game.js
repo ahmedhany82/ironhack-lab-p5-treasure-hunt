@@ -12,16 +12,12 @@ class Game {
   }
 
   drawGrid() {
-    // Iteration 1
-    // Draw the grid
-    // https://p5js.org/reference/#/p5/line
-
     clear();
     stroke(0);
     for(let i= 0; i<=1000; i+=100)
     {
-      line(0, i, WIDTH, i); 
-      line(i, 0, i, HEIGHT);     
+      line(0, i, WIDTH, i); //horizontal lines - y changes
+      line(i, 0, i, HEIGHT); //vertical lines - x changes    
     }
     this.player.draw();
   }
@@ -114,4 +110,3 @@ class Treasure {
     image(this.image, this.col, this.row, 100, 100)
   }
 }
-
